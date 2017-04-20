@@ -4,7 +4,7 @@ body {
     margin: 0;
     border-width: 0;
     padding: 0;
-    background-image: url('/lib/img/background.jpg');
+    background-image: url('../../lib/img/background.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

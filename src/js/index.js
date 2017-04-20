@@ -59,4 +59,4 @@ var main = function(){
 }();
 
 // here goes nothing...
-main("/demo");
+main("../demo");
