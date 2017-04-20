@@ -1,0 +1,238 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-width: 0;
+    padding: 0;
+    background-image: url('/lib/img/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#master-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#header-container {
+    height: 50px;
+    width: 100%;
+    background: #111;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+#blog-icon-container {
+    width:50px;
+    height:100%;
+    background: #222;
+}
+
+#profile-image {
+    width:auto;
+    height:auto;
+    max-width:60px;
+    max-height:60px;
+}
+
+#post-title-container {
+    flex-grow: 1;
+    height:100%;
+    background: #2b9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+#blog-title {
+    color: #fff;
+    height: 100%;
+    font-weight: 600;
+    margin-right: 15px;
+    margin-left: 15px;
+    text-overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#post-title {
+    flex-grow: 1;
+    color: #ddd;
+    font-weight: 300;
+    font-family: "Lucida Console", Monaco, monospace;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#buttons-container {
+    height: 100%;
+    width: 300px;
+    background: #444;
+}
+
+#content-container {
+    flex-grow: 1;
+    width: 70%;
+    margin-left: 0%;
+    margin-right: 20%;
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+}
+
+#sidebar-container {
+    width: 400px;
+    height: 100%;
+    background: rgba(16,16,16,0.9);
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    flex-shrink: 0;
+}
+
+#search-container {
+    width: 100%;
+    height: 45px;
+}
+
+#search-box {
+    width: 90%;
+    height: 30px;
+    margin: 5%;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    background: #eee;
+    border-radius: 10px;
+    border-width: 0;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#list-container {
+    width: 100%;
+    flex-grow: 1;
+    overflow-y: hidden;
+}
+
+#post-title-list {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    color: #ddd;
+    display: flex;
+    padding-left: 0%;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+#post-title-list li {
+    height: 38px;
+    font-size: 18px;
+    padding-left: 5%;
+    border-style: solid;
+    border-width: 0;
+    border-top-width: 0.25px;
+    border-bottom-width: 0.25px;
+    border-color: #555;
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+    cursor:pointer;
+}
+
+#post-title-list li:first-of-type {
+    border-top: none;
+}
+#post-title-list li:last-of-type {
+    border-bottom: none;
+}
+
+#article-container {
+    flex-grow: 1;
+    height: 100%;
+    background: rgba(230,230,230,1);
+    overflow-y: scroll;
+}
+
+#article-body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    padding-top: 20px;
+}
+
+.active-title {
+    background: #0b9;
+    color: #fff;
+}
+
+@media only screen and (max-width: 1700px) {
+    #article-body {
+        padding: 30px;
+        padding-top: 20px;
+    }
+    #content-container{
+        width: 80%;
+        margin-right: 10%;
+    }
+    #sidebar-container{
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    #article-body {
+        padding: 30px;
+        padding-top: 20px;
+    }
+    #content-container{
+        width: 90%;
+        margin-right: 10%;
+    }
+    #sidebar-container{
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    #post-title{
+        display: none;
+    }
+    #article-body {
+        padding: 20px;
+        padding-top: 10px;
+    }
+    #content-container{
+        width: 100%;
+        margin-right: 0;
+    }
+    #sidebar-container{
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    #article-body {
+        padding: 30px;
+        padding-top: 20px;
+    }
+    #sidebar-container{
+        width: 100%;
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #article-body {
+        padding: 10px;
+        padding-top: 10px;
+    }
+}
