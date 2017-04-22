@@ -8,6 +8,20 @@ var loader = function(){
 		state.blogpath = blogpath;
 	};
 
+	var loadConfigJson = function(callback){
+		var setConfigJson = function () {
+  			state.config = JSON.parse(this.responseText);
+  			if(state.config == false){
+  				return callback(true);
+  			}
+  			return callback(false, state.config);
+		}
+		var req = new XMLHttpRequest();
+		req.addEventListener("load", setConfigJson);
+		req.open("GET",state.blogpath + "/config.json");
+		req.send();
+	};
+
 	var loadPostsJson = function(callback) {
 		var setPostsJson = function () {
   			state.posts = JSON.parse(this.responseText);
@@ -27,8 +41,15 @@ var loader = function(){
 		return state.posts;
 	}
 
+	var getConfigJson = function(){
+		return state.posts;
+	}
+
 	var loadPost = function(post, callback) {
 		var setPostsJson = function () {
+			if(this.status != 200){
+				return callback(true);
+			}
   			var rawpost = this.responseText;
   			if(rawpost == false){
   				return callback(true);
@@ -46,5 +67,7 @@ var loader = function(){
 		getPostsJson,
 		loadPostsJson,
 		loadPost,
+		loadConfigJson,
+		getConfigJson,
 	};
 }();

@@ -1,8 +1,9 @@
 var interface = function(){
 	var state = {};
 	
-	var init = function(){
+	var init = function(config){
 		state.currentpost=false;
+		state.config = config;
 		var languageOverrides = {
 		    js: 'javascript',
 		    html: 'xml'
@@ -21,6 +22,10 @@ var interface = function(){
 	    })
 	    .use(markdownitFootnote);
 	    document.getElementById("search-box").value="";
+	    //initial config based UI loading.
+	    document.getElementById("profile-image").src=config.profileimage;
+	    document.getElementById("blog-title").innerHTML=config.blogtitle;
+	    document.title=config.blognick;
 	}
 
 	var addPostTitleInList = function(post){
@@ -68,11 +73,14 @@ var interface = function(){
 		title += post.path;
 		var titleholder = document.getElementById("post-title");
 		titleholder.innerHTML = title;
+		document.title = state.config.blognick + "- " + post.title;
 	}
 
 	var renderPost = function(post,rawpost){
 		var articlebody = document.getElementById("article-body");
 		articlebody.innerHTML = state.markdownparser.render(rawpost);
+		var articlecontainer = document.getElementById("article-container");
+		articlecontainer.scrollTop=0;
 	};
 	
 	return {

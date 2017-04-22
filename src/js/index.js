@@ -6,6 +6,8 @@ var main = function(){
 		interface.updatePostTitleInHeader(post);
 		loader.loadPost(post,function(err,rawpost){
 			if(err){
+				var errormessage = "# Could not load post.\n Sorry. This file is not located on the server.";
+				interface.renderPost(post,errormessage);
 				return console.log("Error thrown by loader.getPost.");
 			}
 			interface.renderPost(post,rawpost);
@@ -36,7 +38,7 @@ var main = function(){
 	}
 
 	var doInitialLoad = function(){
-		interface.init();
+		//interface.init();
 		state.posts.forEach(function(post){
 				interface.addPostTitleInList(post);
 			});
@@ -46,13 +48,16 @@ var main = function(){
 
 	var begin = function(blogpath){
 		loader.init(blogpath);
-		loader.loadPostsJson(function(err,posts){
-			if(err){
-				return console.log("Error thrown by loader.getPostsJson.");
-			}
-			state.posts = posts;
-			doInitialLoad();
-			implementSearch();
+		loader.loadConfigJson(function(err,config){
+			interface.init(config);
+			loader.loadPostsJson(function(err,posts){
+				if(err){
+					return console.log("Error thrown by loader.getPostsJson.");
+				}
+				state.posts = posts;
+				doInitialLoad();
+				implementSearch();
+			});
 		});
 	};
 	return begin;
