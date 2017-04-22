@@ -14,11 +14,20 @@ var main = function(){
 		})
 	};
 
+	var loadPostFromHash = function(hash){
+		state.posts.forEach(function(post){
+			if(post.path === hash.split("#")[1]){
+				return loadPost(post);
+			}
+		});
+	}
+
 	var refreshEventListners = function(){
 		events.setPostTitleClickEventHandler(function(elem){
 			state.posts.forEach(function(post){
 				if(post.path === elem.target.id){
-					return loadPost(post);
+					location.hash = "#" + post.path;
+					return;
 				}
 			});
 		});
@@ -42,7 +51,8 @@ var main = function(){
 		state.posts.forEach(function(post){
 				interface.addPostTitleInList(post);
 			});
-		loadPost(state.posts[0]);
+		// loadPost(state.posts[0]);
+		location.hash = "#" + state.posts[0].path;
 		refreshEventListners();
 	}
 
@@ -57,7 +67,12 @@ var main = function(){
 				state.posts = posts;
 				doInitialLoad();
 				implementSearch();
+				loadPostFromHash(location.hash);
 			});
+		});
+		events.setWindowHashChangeEventHandler(function(hash){
+			console.log(hash);
+			loadPostFromHash(hash);
 		});
 	};
 	return begin;

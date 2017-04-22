@@ -20,9 +20,17 @@ var events = function(){
 		};
 		searchbox.addEventListener("input",sugarcallback);
 	}
+
+	var setWindowHashChangeEventHandler = function(callback){
+		var sugarcallback = function(){
+			return callback(location.hash);
+		};
+		window.addEventListener("hashchange", sugarcallback, false);
+	}
 	return {
 		init,
 		setPostTitleClickEventHandler,
 		setSearchBoxKeyEventHandler,
+		setWindowHashChangeEventHandler,
 	};
 }();
