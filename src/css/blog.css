@@ -4,10 +4,7 @@ body {
     margin: 0;
     border-width: 0;
     padding: 0;
-    background-image: url('../../lib/img/background.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-color: #222;
 }
 
 #master-container {
@@ -89,7 +86,7 @@ body {
 #sidebar-container {
     width: 400px;
     height: 100%;
-    background: rgba(16,16,16,0.9);
+    background: rgba(16,16,16,1);
     display: flex;
     flex-direction: column;
     overflow-y: hidden;

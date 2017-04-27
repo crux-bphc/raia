@@ -28,9 +28,9 @@ var events = function(){
 		window.addEventListener("hashchange", sugarcallback, false);
 	}
 	return {
-		init,
-		setPostTitleClickEventHandler,
-		setSearchBoxKeyEventHandler,
-		setWindowHashChangeEventHandler,
+		init:init,
+		setPostTitleClickEventHandler: setPostTitleClickEventHandler,
+		setSearchBoxKeyEventHandler: setSearchBoxKeyEventHandler,
+		setWindowHashChangeEventHandler: setWindowHashChangeEventHandler,
 	};
 }();

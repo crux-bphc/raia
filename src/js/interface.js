@@ -84,11 +84,11 @@ var interface = function(){
 	};
 	
 	return {
-		init,
-		addPostTitleInList,
-		removePostTitlesInList,
-		activatePostTitleInList,
-		updatePostTitleInHeader,
-		renderPost,
+		init: init,
+		addPostTitleInList: addPostTitleInList,
+		removePostTitlesInList: removePostTitlesInList,
+		activatePostTitleInList: activatePostTitleInList,
+		updatePostTitleInHeader: updatePostTitleInHeader,
+		renderPost:renderPost,
 	};
 }();

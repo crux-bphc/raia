@@ -63,11 +63,11 @@ var loader = function(){
 	};
 
 	return {
-		init,
-		getPostsJson,
-		loadPostsJson,
-		loadPost,
-		loadConfigJson,
-		getConfigJson,
+		init: init,
+		getPostsJson: getPostsJson,
+		loadPostsJson: loadPostsJson,
+		loadPost: loadPost,
+		loadConfigJson: loadConfigJson,
+		getConfigJson: getConfigJson,
 	};
 }();
