@@ -75,9 +75,6 @@
           border-top-color: #fff;
           border-bottom-color: #fff;
           border-radius: 50%;
-          -webkit-animation: loader 2s linear infinite;
-          -moz-animation: loader 2s linear infinite;
-          -o-animation: loader 2s linear infinite;
           animation: loader 2s linear infinite;
         }
 
@@ -86,9 +83,6 @@
           border-top-color: #fff;
           border-bottom-color: #fff;
           border-radius: 50%;
-          -webkit-animation: loader 3s linear infinite;
-            -moz-animation: loader 2s linear infinite;
-          -o-animation: loader 2s linear infinite;
           animation: loader 3s linear infinite;
         }
 
@@ -97,73 +91,51 @@
           border-top-color: #fff;
           border-bottom-color: #fff;
           border-radius: 50%;
-          -webkit-animation: loader 1.5s linear infinite;
           animation: loader 1.5s linear infinite;
-            -moz-animation: loader 2s linear infinite;
-          -o-animation: loader 2s linear infinite;
         }
 
         @-webkit-keyframes loaders {
           0% {
-            -webkit-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
             transform: rotate(0deg);
           }
           100% {
-            -webkit-transform: rotate(360deg);
-            -ms-transform: rotate(360deg);
             transform: rotate(360deg);
           }
         }
 
         @keyframes loader {
           0% {
-            -webkit-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
             transform: rotate(0deg);
           }
           100% {
-            -webkit-transform: rotate(360deg);
-            -ms-transform: rotate(360deg);
             transform: rotate(360deg);
           }
         }
 
         .animate-out {
             animation-name: fadeFromTop;
-            -webkit-animation-name: fadeFromTop;
-            animation-duration: 800ms;
-            -webkit-animation-duration: 800ms;
-            animation-timing-function: ease-out;
-            -webkit-animation-timing-function: ease-out;
+            animation-duration: 400ms;
+            animation-timing-function: ease-in;
             animation-fill-mode: forwards;
-            -webkit-animation-fill-mode: forwards;
         }
 
         @keyframes fadeFromTop  {
             0%{
                 opacity:1;
-                -webkit-transform: translateY(0px);
-                -moz-transform: translateY(0px);
-                -ms-transform: translateY(0px);
-                -o-transform: translateY(0px);
-                transform: translateY(0px);
+                transform: translateX(0px);
             }
             100%{
-                opacity: 0;
-                -webkit-transform: translateY(100%);
-                -moz-transform: translateY(100%);
-                -ms-transform: translateY(400%);
-                -o-transform: translateY(100%);
-                transform: translateY(100%);
+                opacity: 1;
+                transform: translateX(-100%);
             }
         }
     </style>
     <script type="text/javascript">
      var hideOverlay = function(){
             overlay = document.getElementById("loading-animation-container");
-            overlay.innerHTML = "";
+            //overlay.innerHTML = "";
             overlay.classList.add("animate-out");
+            // document.getElementById("loading-content").outerHTML="";
             // overlay.style.display="none";
         }
     </script>
