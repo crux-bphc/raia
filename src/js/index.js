@@ -11,6 +11,7 @@ var main = function(){
 				return console.log("Error thrown by loader.getPost.");
 			}
 			interface.renderPost(post,rawpost);
+			hideOverlay();//calls global function. TODO find alternative
 		})
 	};
 
@@ -47,11 +48,9 @@ var main = function(){
 	}
 
 	var doInitialLoad = function(){
-		//interface.init();
 		state.posts.forEach(function(post){
 				interface.addPostTitleInList(post);
 			});
-		// loadPost(state.posts[0]);
 		location.hash = "#" + state.posts[0].path;
 		refreshEventListners();
 	}
@@ -71,7 +70,6 @@ var main = function(){
 			});
 		});
 		events.setWindowHashChangeEventHandler(function(hash){
-			console.log(hash);
 			loadPostFromHash(hash);
 		});
 	};

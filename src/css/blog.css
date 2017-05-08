@@ -4,7 +4,7 @@ body {
     margin: 0;
     border-width: 0;
     padding: 0;
-    background-color: #222;
+    background-color: #eee;
 }
 
 #master-container {
@@ -146,6 +146,10 @@ body {
     margin-top: 0px;
 }
 
+#post-title-list li:hover {
+    background: #444;
+}
+
 #post-title-list li:first-of-type {
     border-top: none;
 }
@@ -156,7 +160,7 @@ body {
 #article-container {
     flex-grow: 1;
     height: 100%;
-    background: rgba(230,230,230,1);
+    background: #fff;
     overflow-y: scroll;
 }
 

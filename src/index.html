@@ -12,6 +12,162 @@
 </head>
 
 <body>
+<div id="loading-animation-container">
+    <!-- CREDITS: Loading Circle Animation from https://codepen.io/luka-butina/pen/ZbeQzd -->
+    <div id="loading-content"></div>
+    <style type="text/css">
+        #loading-animation-container {
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          background: #2b9;
+        }
+
+        #loading-text {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          color: #fff;
+          width: 100px;
+          height: 30px;
+          margin: -10px 0 0 -45px;
+          text-align: center;
+          font-family: 'PT Sans Narrow', sans-serif;
+          font-size: 20px;
+        }
+
+        #loading-content {
+          display: block;
+          position: relative;
+          left: 50%;
+          top: 50%;
+          width: 150px;
+          height: 150px;
+          margin: -75px 0 0 -75px;
+          border: 3px solid #F00;
+        }
+
+        #loading-content:after {
+          content: "";
+          position: absolute;
+          border: 3px solid #0F0;
+          left: 15px;
+          right: 15px;
+          top: 15px;
+          bottom: 15px;
+        }
+
+        #loading-content:before {
+          content: "";
+          position: absolute;
+          border: 3px solid #00F;
+          left: 5px;
+          right: 5px;
+          top: 5px;
+          bottom: 5px;
+        }
+
+        #loading-content {
+          border: 3px solid transparent;
+          border-top-color: #fff;
+          border-bottom-color: #fff;
+          border-radius: 50%;
+          -webkit-animation: loader 2s linear infinite;
+          -moz-animation: loader 2s linear infinite;
+          -o-animation: loader 2s linear infinite;
+          animation: loader 2s linear infinite;
+        }
+
+        #loading-content:before {
+          border: 3px solid transparent;
+          border-top-color: #fff;
+          border-bottom-color: #fff;
+          border-radius: 50%;
+          -webkit-animation: loader 3s linear infinite;
+            -moz-animation: loader 2s linear infinite;
+          -o-animation: loader 2s linear infinite;
+          animation: loader 3s linear infinite;
+        }
+
+        #loading-content:after {
+          border: 3px solid transparent;
+          border-top-color: #fff;
+          border-bottom-color: #fff;
+          border-radius: 50%;
+          -webkit-animation: loader 1.5s linear infinite;
+          animation: loader 1.5s linear infinite;
+            -moz-animation: loader 2s linear infinite;
+          -o-animation: loader 2s linear infinite;
+        }
+
+        @-webkit-keyframes loaders {
+          0% {
+            -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+          }
+          100% {
+            -webkit-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes loader {
+          0% {
+            -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+          }
+          100% {
+            -webkit-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+        }
+
+        .animate-out {
+            animation-name: fadeFromTop;
+            -webkit-animation-name: fadeFromTop;
+            animation-duration: 800ms;
+            -webkit-animation-duration: 800ms;
+            animation-timing-function: ease-out;
+            -webkit-animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeFromTop  {
+            0%{
+                opacity:1;
+                -webkit-transform: translateY(0px);
+                -moz-transform: translateY(0px);
+                -ms-transform: translateY(0px);
+                -o-transform: translateY(0px);
+                transform: translateY(0px);
+            }
+            100%{
+                opacity: 0;
+                -webkit-transform: translateY(100%);
+                -moz-transform: translateY(100%);
+                -ms-transform: translateY(400%);
+                -o-transform: translateY(100%);
+                transform: translateY(100%);
+            }
+        }
+    </style>
+    <script type="text/javascript">
+     var hideOverlay = function(){
+            overlay = document.getElementById("loading-animation-container");
+            overlay.innerHTML = "";
+            overlay.classList.add("animate-out");
+            // overlay.style.display="none";
+        }
+    </script>
+</div>
 <div id="master-container">
     <div id="header-container">
         <div id="blog-icon-container">
@@ -43,7 +199,7 @@
     <!-- build:js js/main.min.js -->
     <script type="text/javascript" src="../lib/js/markdown-it.js"></script>
     <script type="text/javascript" src="../lib/js/markdown-it-footnote.js"></script>
-    <script type="text/javascript" src="../lib/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="../lib/js/highlight.pack.js"></script> 
     <script type="text/javascript" src="js/interface.js"></script>
     <script type="text/javascript" src="js/events.js"></script>
     <script type="text/javascript" src="js/loader.js"></script>
