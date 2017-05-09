@@ -23,17 +23,6 @@ var main = function(){
 		});
 	}
 
-	var refreshEventListners = function(){
-		events.setPostTitleClickEventHandler(function(elem){
-			state.posts.forEach(function(post){
-				if(post.path === elem.target.id){
-					location.hash = "#" + post.path;
-					return;
-				}
-			});
-		});
-	};
-
 	var implementSearch = function(){
 		events.setSearchBoxKeyEventHandler(function(text){
 			interface.removePostTitlesInList();
@@ -43,7 +32,6 @@ var main = function(){
 				}
 			});
 			interface.activatePostTitleInList();
-			refreshEventListners();
 		});
 	}
 
@@ -51,8 +39,9 @@ var main = function(){
 		state.posts.forEach(function(post){
 				interface.addPostTitleInList(post);
 			});
-		location.hash = "#" + state.posts[0].path;
-		refreshEventListners();
+		if(!location.hash){
+			location.hash = "#" + state.posts[0].path;
+		}
 	}
 
 	var begin = function(blogpath){

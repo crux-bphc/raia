@@ -31,7 +31,10 @@ var interface = function(){
 	var addPostTitleInList = function(post){
 		var li = document.createElement("li");
 		var list = document.getElementById("post-title-list");
-		li.innerHTML = post.title;
+		var a = document.createElement("a");
+		a.innerHTML = post.title;
+		a.setAttribute("href","#"+post.path);
+		li.appendChild(a);
 		li.setAttribute("id",post.path);
 		list.appendChild(li);
 	}
