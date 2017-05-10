@@ -8,17 +8,16 @@ body {
 }
 
 #master-container {
-    display: flex;
-    flex-direction: column;
+    display: block;
     width: 100%;
     height: 100%;
 }
 
 #header-container {
     height: 50px;
+    position: fixed;
     width: 100%;
     background: #111;
-    flex-shrink: 0;
     display: flex;
     flex-direction: row;
 }
@@ -74,7 +73,8 @@ body {
 }
 
 #content-container {
-    flex-grow: 1;
+    height: 100%;
+    padding-top: 50px;
     width: 70%;
     margin-left: 0%;
     margin-right: 20%;
@@ -114,6 +114,7 @@ body {
 
 #list-container {
     width: 100%;
+    height: 100%;
     flex-grow: 1;
     overflow-y: hidden;
     display: flex;
@@ -128,6 +129,7 @@ body {
     padding-left: 0%;
     flex-direction: column;
     overflow-y: scroll;
+    margin: 0;
 }
 
 #post-title-list li {
