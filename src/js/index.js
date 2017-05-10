@@ -2,12 +2,16 @@ var main = function(){
 	var state = {};
 
 	var loadPost = function(post){
+		if(!post){
+			interface.renderPost(false,templates.error_wrong_path);
+			hideOverlay();//calls global function. TODO find alternative
+			return;
+		}
 		interface.activatePostTitleInList(post);
 		interface.updatePostTitleInHeader(post);
 		loader.loadPost(post,function(err,rawpost){
 			if(err){
-				var errormessage = "# Could not load post.\n Sorry. This file is not located on the server.";
-				interface.renderPost(post,errormessage);
+				interface.renderPost(post,templates.error_not_on_server);
 				return console.log("Error thrown by loader.getPost.");
 			}
 			interface.renderPost(post,rawpost);
@@ -15,12 +19,28 @@ var main = function(){
 		})
 	};
 
+	var getRelativePost = function(curpost,difference){
+		var curindex = false;
+		state.posts.forEach(function(post,index){
+			if(post === curpost){
+				curindex = index;
+				return;
+			}
+		});
+		var targetindex = curindex + difference;
+		if( targetindex >=0 && targetindex < state.posts.length){
+			return state.posts[targetindex];
+		}
+		return false;
+	}
+
 	var loadPostFromHash = function(hash){
 		state.posts.forEach(function(post){
 			if(post.path === hash.split("#")[1]){
 				return loadPost(post);
 			}
 		});
+		return loadPost(false);
 	}
 
 	var implementSearch = function(){
@@ -32,6 +52,21 @@ var main = function(){
 				}
 			});
 			interface.activatePostTitleInList();
+		});
+	}
+
+	var implementShortcuts = function(){
+		Mousetrap.bind("ctrl+right",function loadNextPost(){
+			var targetpost = getRelativePost(interface.getCurrentPost(),1);
+			if(targetpost){
+				location.hash = "#" + targetpost.path;
+			}
+		});
+		Mousetrap.bind("ctrl+left",function loadPreviousPost(){
+			var targetpost = getRelativePost(interface.getCurrentPost(),-1);
+			if(targetpost){
+				location.hash = "#" + targetpost.path;
+			}
 		});
 	}
 
@@ -55,10 +90,12 @@ var main = function(){
 				state.posts = posts;
 				doInitialLoad();
 				implementSearch();
+				implementShortcuts();
 				loadPostFromHash(location.hash);
 			});
 		});
 		events.setWindowHashChangeEventHandler(function(hash){
+			console.log("HASH:");
 			loadPostFromHash(hash);
 		});
 	};

@@ -52,6 +52,8 @@ gulp.task('scripts', () =>
       'lib/js/markdown-it.js',
       'lib/js/markdown-it-footnote.js',
       'lib/js/highlight.pack.js',
+      'lib/js/mousetrap.min.js',
+      'src/js/templates.js',
       'src/js/interface.js',
       'src/js/events.js',
       'src/js/loader.js',

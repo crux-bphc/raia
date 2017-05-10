@@ -35,7 +35,7 @@ var interface = function(){
 		a.innerHTML = post.title;
 		a.setAttribute("href","#"+post.path);
 		li.appendChild(a);
-		li.setAttribute("id",post.path);
+		li.setAttribute("id","post-list-"+post.path);
 		list.appendChild(li);
 	}
 
@@ -52,12 +52,12 @@ var interface = function(){
 			}
 		}
 		if(state.currentpost){
-			var oldli = document.getElementById(state.currentpost.path);
+			var oldli = document.getElementById("post-list-"+state.currentpost.path);
 			if(oldli){
 				oldli.classList.remove("active-title");
 			}
 		}
-		var newli = document.getElementById(post.path);
+		var newli = document.getElementById("post-list-"+post.path);
 		if(newli){
 			newli.classList.add("active-title");
 			state.currentpost=post;
@@ -85,7 +85,11 @@ var interface = function(){
 		var articlecontainer = document.getElementById("article-container");
 		articlecontainer.scrollTop=0;
 	};
-	
+
+	var getCurrentPost = function(){
+		return state.currentpost;
+	}
+
 	return {
 		init: init,
 		addPostTitleInList: addPostTitleInList,
@@ -93,5 +97,6 @@ var interface = function(){
 		activatePostTitleInList: activatePostTitleInList,
 		updatePostTitleInHeader: updatePostTitleInHeader,
 		renderPost:renderPost,
+		getCurrentPost: getCurrentPost,
 	};
 }();
