@@ -41,7 +41,7 @@ var interface = function(){
 
 	var removePostTitlesInList = function(){
 		var list = document.getElementById("post-title-list");
-		list.innerHTML = "";
+		list.innerHTML = null;
 	}
 
 	var activatePostTitleInList = function(post){
@@ -62,6 +62,15 @@ var interface = function(){
 			newli.classList.add("active-title");
 			state.currentpost=post;
 		}
+	}
+
+	var getCurrentListNarrow = function(){
+		var list = document.getElementById("post-title-list");
+		var list_narrow = [];
+		for(var i=0;i<list.children.length;i++){
+			list_narrow.push(list.children[i].getAttribute("id").replace('post-list-',''));
+		}
+		return list_narrow;
 	}
 
 	var updatePostTitleInHeader = function(post){
@@ -98,5 +107,6 @@ var interface = function(){
 		updatePostTitleInHeader: updatePostTitleInHeader,
 		renderPost:renderPost,
 		getCurrentPost: getCurrentPost,
+		getCurrentListNarrow: getCurrentListNarrow,
 	};
 }();

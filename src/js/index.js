@@ -21,17 +21,27 @@ var main = function(){
 
 	var getRelativePost = function(curpost,difference){
 		var curindex = false;
-		state.posts.forEach(function(post,index){
-			if(post === curpost){
+		var curnarrow = interface.getCurrentListNarrow();
+		if(curnarrow.indexOf(curpost.path) == -1){
+			return false;
+		} // currenty open post is not in current search narrow. do nothing.
+		curnarrow.forEach(function(post,index){
+			if(post === curpost.path){
 				curindex = index;
 				return;
 			}
 		});
 		var targetindex = curindex + difference;
-		if( targetindex >=0 && targetindex < state.posts.length){
-			return state.posts[targetindex];
+		var targetpost = false;
+		if( targetindex >=0 && targetindex < curnarrow.length){
+			state.posts.forEach(function(post){
+				if(post.path == curnarrow[targetindex]){
+					return targetpost = post;
+				}
+			});
 		}
-		return false;
+		console.log(targetpost);
+		return targetpost;
 	}
 
 	var loadPostFromHash = function(hash){
@@ -95,7 +105,6 @@ var main = function(){
 			});
 		});
 		events.setWindowHashChangeEventHandler(function(hash){
-			console.log("HASH:");
 			loadPostFromHash(hash);
 		});
 	};
