@@ -85,7 +85,7 @@ var main = function(){
 				interface.addPostTitleInList(post);
 			});
 		if(!location.hash){
-			location.hash = "#" + state.posts[0].path;
+			location.hash = "#" + state.posts[state.posts.length - 1].path;
 		}
 	}
 

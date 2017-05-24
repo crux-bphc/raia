@@ -28,7 +28,7 @@ var loader = function(){
   			if(state.posts == false){
   				return callback(true);
   			}
-  			//state.posts.reverse();
+			state.posts.reverse();
   			return callback(false, state.posts);
 		}
 		var req = new XMLHttpRequest();

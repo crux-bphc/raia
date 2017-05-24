@@ -61,6 +61,7 @@ var interface = function(){
 		if(newli){
 			newli.classList.add("active-title");
 			state.currentpost=post;
+			newli.scrollIntoView();
 		}
 	}
 
