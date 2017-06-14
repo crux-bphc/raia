@@ -76,8 +76,8 @@ body {
     height: 100%;
     padding-top: 50px;
     width: 70%;
-    margin-left: 0%;
-    margin-right: 20%;
+    margin-left: 15%;
+    margin-right: 25%;
     display: flex;
     flex-direction: row;
     overflow-y: hidden;
@@ -86,7 +86,8 @@ body {
 #sidebar-container {
     width: 400px;
     height: 100%;
-    background: rgba(16,16,16,1);
+    background: #ddd;
+    /*background: rgba(16,16,16,1);*/
     display: flex;
     flex-direction: column;
     overflow-y: hidden;
@@ -96,6 +97,7 @@ body {
 #search-container {
     width: 100%;
     height: 60px;
+    background: #ccc;
 }
 
 #search-box {
@@ -104,7 +106,6 @@ body {
     margin: 5%;
     margin-top: 15px;
     margin-bottom: 15px;
-    background: #eee;
     border-radius: 10px;
     border-width: 0;
     padding: 2px;
@@ -124,7 +125,7 @@ body {
     list-style: none;
     width: 100%;
     height: 100%;
-    color: #ddd;
+    color: #333;
     display: flex;
     padding-left: 0%;
     flex-direction: column;
@@ -140,7 +141,7 @@ body {
     border-width: 0;
     border-top-width: 0.25px;
     border-bottom-width: 0.25px;
-    border-color: #555;
+    border-color: #aaa;
     align-items: center;
     display: flex;
     flex-shrink: 0;
@@ -149,7 +150,7 @@ body {
 }
 
 #post-title-list li:hover {
-    background: #444;
+    background: #aaa;
 }
 
 #post-title-list li:first-of-type {
@@ -197,6 +198,7 @@ body {
     }
     #content-container{
         width: 80%;
+        margin-left: 10%;
         margin-right: 10%;
     }
     #sidebar-container{
@@ -211,6 +213,7 @@ body {
     }
     #content-container{
         width: 90%;
+        margin-left: 0%;
         margin-right: 10%;
     }
     #sidebar-container{
@@ -228,6 +231,7 @@ body {
     }
     #content-container{
         width: 100%;
+        margin-left: 0;
         margin-right: 0;
     }
     #sidebar-container{
