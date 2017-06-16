@@ -2,66 +2,79 @@
 	{
 		"title": "About Raia",
 		"path": "../README",
-		"date": "20-04-2017"
+		"date": "20-04-2017",
+		"category": "Test Posts"
 	},
 	{
 		"title": "Sample Code For Testing",
 		"path": "code",
-		"date": "10-04-2017"
+		"date": "10-04-2017",
+		"category": "Test Posts"
 	},
 	{
 		"title": "Rohitt Vashishtha",
 		"path": "rohitt-vashishtha",
-		"date": "10-04-2017"
+		"date": "10-04-2017",
+		"category": "Test Posts"
 	},
 	{
 		"title": "Afroz Ahamad",
 		"path": "afroz-ahamad",
-		"date": "08-04-2017"
+		"date": "08-04-2017",
+		"category": "Test Posts"
 	},
 	{
 		"title": "Ajay Krishna",
 		"path": "ajay-krishna",
-		"date": "05-04-2017"
+		"date": "05-04-2017",
+		"category": "Test Posts"
 	},
 	{
 		"title": "Basu Dubey",
 		"path": "basu-dubey",
-		"date": "31-03-2017"
+		"date": "31-03-2017",
+		"category": "Test Posts"
 	},
 	{
 		"title": "Harshit Agarwal",
 		"path": "harshit-agarwal",
-		"date": "25-03-2017"
+		"date": "25-03-2017",
+		"category": "Test Posts"
 	},
 	{
 		"title": "Himanshu Gupta",
 		"path": "himanshu-gupta",
-		"date": "15-03-2017"
+		"date": "15-03-2017",
+		"category": "Test Posts"
 	},
 	{
 		"title": "Hites Bhagchandani",
 		"path": "hitesh-bhagchandani",
-		"date": "08-03-2016"
+		"date": "08-03-2016",
+		"category": "Test Posts"
 	},
 	{
 		"title": "Kushagra Agrawal",
 		"path": "kushagra-agrawal",
-		"date": "01-03-2017"
+		"date": "01-03-2017",
+		"category": "Test Posts"
 	},
 	{
 		"title": "Naren Surampudi",
 		"path": "naren-surampudi",
-		"date": "20-02-2017"
+		"date": "20-02-2017",
+		"category": "Test Posts"
 	},
 	{
 		"title": "Wrong File Path Post",
 		"path": "wrong-file",
-		"date": "15-02-2017"
+		"date": "15-02-2017",
+		"category": "Test Posts"
 	},
 	{
 		"title": "Empty File Path Post",
 		"path": "",
-		"date": "10-02-2017"
+		"date": "10-02-2017",
+		"category": "Test Posts"
 	}
 ]

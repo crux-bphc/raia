@@ -80,7 +80,8 @@ var interface = function(){
 		date.year = post.date.split("-")[2];
 		date.month = post.date.split("-")[1];
 		date.day = post.date.split("-")[0];
-		var title = " > " + post.title;
+		var title = " > " + post.category + " > " + post.title;
+		console.log(post);
 		var titleholder = document.getElementById("post-title");
 		titleholder.innerHTML = title;
 		document.title = state.config.blognick + " > " + post.title;
