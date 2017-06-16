@@ -24,6 +24,7 @@ var interface = function(){
 	    document.getElementById("search-box").value="";
 	    //initial config based UI loading.
 	    document.getElementById("profile-image").src=config.profileimage;
+	    document.getElementById("favicon").setAttribute("href", config.profileimage);
 	    document.getElementById("blog-title").innerHTML=config.blogtitle;
 	    document.title=config.blognick;
 	}
@@ -79,14 +80,10 @@ var interface = function(){
 		date.year = post.date.split("-")[2];
 		date.month = post.date.split("-")[1];
 		date.day = post.date.split("-")[0];
-		var title = "~/";
-		title += date.year + "/";
-		title += date.month + "/";
-		title += date.day + "/";
-		title += post.path;
+		var title = " > " + post.title;
 		var titleholder = document.getElementById("post-title");
 		titleholder.innerHTML = title;
-		document.title = state.config.blognick + "- " + post.title;
+		document.title = state.config.blognick + " > " + post.title;
 	}
 
 	var renderPost = function(post,rawpost){
